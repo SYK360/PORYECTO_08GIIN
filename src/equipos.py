@@ -38,19 +38,58 @@ def alta_equipos (data):
     print("")
     print("Alta equipos")
     ref = alfa_numerico("Identificador (único): ")
-    validar_ref(ref,data)
+    validar_ref(ref, data)
+    agregar_componentes(ref, data)
 
 
-def agregar_componentes(data):
+def agregar_componentes(ref, data):
     print("----------------")
-    print("")
-    print("Agregar fuente")
+    fuentes = {k: v for k, v in data['componentes'].items() if v["tipo"] == 1 and v["cantidad"] > 1}
+    for clave, valor in fuentes.items():
+        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_fuente = alfa_numerico("Identificador fuente (único): ")
+
+    print("----------------")
+    pbs = {k: v for k, v in data['componentes'].items() if v["tipo"] == 2 and v["cantidad"] > 1}
+    for clave, valor in pbs.items():
+        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_pb = alfa_numerico("Identificador placa base (único): ")
+
+    print("----------------")
+    tgs = {k: v for k, v in data['componentes'].items() if v["tipo"] == 3 and v["cantidad"] > 1}
+    for clave, valor in tgs.items():
+        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_tg = alfa_numerico("Identificador tg (único): ")
+
+    print("----------------")
+    cpus = {k: v for k, v in data['componentes'].items() if v["tipo"] == 4 and v["cantidad"] > 1}
+    for clave, valor in cpus.items():
+        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_cpu = alfa_numerico("Identificador cpu (único): ")
+
+    print("----------------")
+    rams = {k: v for k, v in data['componentes'].items() if v["tipo"] == 5 and v["cantidad"] > 1}
+    for clave, valor in rams.items():
+        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_ram = alfa_numerico("Identificador ram (único): ")
+
+    print("----------------")
+    discos = {k: v for k, v in data['componentes'].items() if v["tipo"] == 6 and v["cantidad"] > 1}
+    for clave, valor in discos.items():
+        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_disco = alfa_numerico("Identificador disco (único): ")
+
+    data['equipos'][ref] = {
+        "fuente": ref_fuente,
+        "placa_base": ref_pb,
+        "tg": ref_tg,
+        "cpu": ref_cpu,
+        "ram": ref_ram,
+        "disco": ref_disco
+    }
+
+    print("Equipo agregado correctamente")
+    cargar_menu_equipos(data)
 
 def agegar_fuente(data):
     print("----------------")

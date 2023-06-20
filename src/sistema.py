@@ -34,7 +34,7 @@ def cargar_menu_sistema(data):
 def cargar_listado_componentes(data):
 
     for clave, valor in data['componentes'].items():
-        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")\
+        print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
 
     print("Deseas introducir otro componente? 1 : SI  0 : NO")
     opcion = es_entero("Selecciona una opcion: ")
