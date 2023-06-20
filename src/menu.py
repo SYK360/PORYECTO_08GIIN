@@ -7,6 +7,7 @@ from utils import es_entero
 from componentes import cargar_menu_componentes
 from distribuidores import cargar_menu_distribuidores
 from archivo import cargar_menu_archivos
+from sistema import cargar_menu_sistema
 
 def cargar_menu(data):
     os.system('clear')
@@ -38,6 +39,8 @@ def seleccionar_opcion(opcion, data):
         print("Equipos")
     elif opcion == 3:
         cargar_menu_distribuidores(data)
+    elif opcion == 6:
+        cargar_menu_sistema(data)
     elif opcion == 7:
         cargar_menu_archivos(data)
     else:
