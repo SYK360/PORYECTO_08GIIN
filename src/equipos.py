@@ -5,7 +5,7 @@
 import os
 import menu
 
-from utils import es_entero, alfa_numerico, es_float
+from utils import es_entero, alfa_numerico
 
 def cargar_menu_equipos(data):
     os.system('clear')

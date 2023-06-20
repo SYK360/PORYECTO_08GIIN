@@ -9,6 +9,7 @@ from distribuidores import cargar_menu_distribuidores
 from archivo import cargar_menu_archivos
 from sistema import cargar_menu_sistema
 from equipos import cargar_menu_equipos
+from despachar import cargar_menu_despachar
 
 def cargar_menu(data):
     os.system('clear')
@@ -40,6 +41,8 @@ def seleccionar_opcion(opcion, data):
         cargar_menu_equipos(data)
     elif opcion == 3:
         cargar_menu_distribuidores(data)
+    elif opcion == 4:
+        cargar_menu_despachar(data)
     elif opcion == 6:
         cargar_menu_sistema(data)
     elif opcion == 7:
