@@ -60,8 +60,6 @@ def alta_distribuidores(data):
 
     print("Distribuidor creado correctamente")
     print("")
-    print(data['distribuidores'])
-    print("")
     print("Deseas introducir otro distribuidor? 1 : SI  0 : NO")
     opcion = es_entero("Selecciona una opcion: ")
 

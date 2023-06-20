@@ -24,7 +24,6 @@ def cargar_menu_archivos(data):
        cargar_menu_principal(data)
     elif opcion == 2:
         guardar_archivo("collection", data)
-    else:
         cargar_menu_principal(data)
 
 def cargar_archivo(nombre_archivo):
