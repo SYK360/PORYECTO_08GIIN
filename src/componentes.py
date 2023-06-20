@@ -32,13 +32,14 @@ def seleccionar_opcion(opcion, data):
     elif opcion == 2:
         modificacion_componentes(data)
     else:
-        print("Gracias por usar nuestro sistema")
+        menu.cargar_menu(data)
 
 def modificacion_componentes(data):
     print("----------------")
     print("")
     print("Modificar Componente")
-    print("1 - Ingresar una referencia, 2 - Listar componentes")
+    print("1 - Ingresar una referencia")
+    print("2 - Listar componentes")
     opcion = es_entero("Selecciona una opcion: ")
     while opcion > 2:
         print("El valor introducido no pertenece al menu")
@@ -85,7 +86,7 @@ def modificar_componente(data):
     elif opcion == 3:
         data['componentes'].pop(ref)
 
-    cargar_menu_principal(data)
+    menu.cargar_menu(data)
 
 
 def alta_componentes(data):
@@ -136,7 +137,7 @@ def alta_componentes(data):
     if opcion == 1:
         alta_componentes(data)
     else:
-        cargar_menu_principal(data)
+        menu.cargar_menu(data)
 
 
 
@@ -144,13 +145,17 @@ def validar_referencia(ref):
     print("Validar Referencia")
 
 def seleccionar_tipo_componente():
-    print("1 - Fuente, 2 - PB, 3 - TG, 4 - CPU, 5 - RAM, 6 - Disco")
+    print("")
+    print("1 - Fuente")
+    print("2 - PB")
+    print("3 - TG")
+    print("4 - CPU")
+    print("5 - RAM")
+    print("6 - Disco")
+    print("")
     tipo = es_entero("Selecciona una opcion: ")
     while tipo > 6:
         print("El valor introducido no pertenece al menu")
         tipo = es_entero("Selecciona una opcion: ")
 
     return tipo
-
-def cargar_menu_principal(data):
-    menu.cargar_menu(data)
