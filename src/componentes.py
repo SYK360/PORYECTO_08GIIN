@@ -6,7 +6,7 @@
 import os
 from utils import es_entero, alfa_numerico, es_float
 
-def cargar_menu_componentes():
+def cargar_menu_componentes(data):
     os.system('clear')
     print("--- MENU COMPONENTES ---")
     print("")

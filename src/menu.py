@@ -5,8 +5,10 @@
 import os
 from utils import es_entero
 from componentes import cargar_menu_componentes
+from distribuidores import cargar_menu_distribuidores
+from archivo import cargar_menu_archivos
 
-def cargar_menu():
+def cargar_menu(data):
     os.system('clear')
     print("--- MENU PRINCIPAL ---")
     print("")
@@ -26,13 +28,17 @@ def cargar_menu():
        print("El valor introducido no pertenece al menu")
        opcion = es_entero("Selecciona una opcion: ")
 
-    seleccionar_opcion(opcion)
+    seleccionar_opcion(opcion, data)
 
 
-def seleccionar_opcion(opcion):
+def seleccionar_opcion(opcion, data):
     if opcion == 1:
-        cargar_menu_componentes()
+        cargar_menu_componentes(data)
     elif opcion == 2:
         print("Equipos")
+    elif opcion == 3:
+        cargar_menu_distribuidores(data)
+    elif opcion == 7:
+        cargar_menu_archivos(data)
     else:
         print("Gracias por usar nuestro sistema")

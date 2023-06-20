@@ -11,4 +11,13 @@ sys.path.append('./src')
 
 from menu import cargar_menu
 
-cargar_menu()
+data = {
+    "componentes": {},
+    "equipos": {},
+    "distribuidores": {},
+    "despachar": {},
+    "dias": {},
+}
+
+os.system('clear')
+cargar_menu(data)
