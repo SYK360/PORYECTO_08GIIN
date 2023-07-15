@@ -2,8 +2,8 @@
 @author: CARLOS ANDRES YANEZ CORREA
 """
 
-import os
-from utils import es_entero
+
+from utils import es_entero, limpiar_pantalla
 from componentes import cargar_menu_componentes
 from distribuidores import cargar_menu_distribuidores
 from archivo import cargar_menu_archivos
@@ -12,7 +12,7 @@ from equipos import cargar_menu_equipos
 from despachar import cargar_menu_despachar
 
 def cargar_menu(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("--- MENU PRINCIPAL ---")
     print("")
     print("  1 - Componentes")

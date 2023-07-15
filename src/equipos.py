@@ -5,10 +5,10 @@
 import os
 import menu
 
-from utils import es_entero, alfa_numerico
+from utils import es_entero, alfa_numerico, limpiar_pantalla
 
 def cargar_menu_equipos(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("--- MENU EQUIPOS ---")
     print("")
     print("  1 - Alta")
@@ -33,7 +33,7 @@ def seleccionar_opcion(opcion, data):
         menu.cargar_menu(data)
 
 def alta_equipos (data):
-    os.system('clear')
+    limpiar_pantalla()
     print("----------------")
     print("")
     print("Alta equipos")
@@ -116,7 +116,7 @@ def agegar_fuente(data):
 
 def validar_ref(ref, data):
     if ref in data['equipos']:
-        os.system('clear')
+        limpiar_pantalla()
         print("La referencia ya existe")
         cargar_menu_equipos(data)
 

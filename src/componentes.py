@@ -3,14 +3,13 @@
 """
 
 
-import os
 import menu
 
-from utils import es_entero, alfa_numerico, es_float
+from utils import es_entero, alfa_numerico, es_float, limpiar_pantalla
 from sistema import cargar_listado_componentes
 
 def cargar_menu_componentes(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("--- MENU COMPONENTES ---")
     print("")
     print("  1 - Alta")
@@ -54,11 +53,11 @@ def modificacion_componentes(data):
 
 
 def modificar_componente(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("----------------")
     ref = alfa_numerico("Identificador (único): ")
     if ref not in data['componentes']:
-        os.system('clear')
+        limpiar_pantalla()
         print("La referencia no existe")
         print("----------------")
         print("")
@@ -90,14 +89,14 @@ def modificar_componente(data):
 
 
 def alta_componentes(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("----------------")
     print("")
     print("Alta Componentes")
     ref = alfa_numerico("Identificador (único): ")
 
     if ref in data['componentes']:
-        os.system('clear')
+        limpiar_pantalla()
         print("La referencia ya existe")
         cargar_menu_componentes(data)
 

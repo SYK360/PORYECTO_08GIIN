@@ -2,9 +2,7 @@
 @author: CARLOS ANDRES YANEZ CORREA
 """
 
-import json
-import os
-from utils import es_entero
+from utils import es_entero, limpiar_pantalla
 import menu
 import componentes
 import distribuidores
@@ -12,7 +10,7 @@ import equipos
 
 
 def cargar_menu_sistema(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("--- MENU SISTEMA ---")
     print("")
     print("  1 - Distribuidores")

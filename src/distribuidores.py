@@ -2,14 +2,13 @@
 @author: CARLOS ANDRES YANEZ CORREA
 """
 
-import os
 
 import menu
-from utils import es_entero, alfa_numerico
+from utils import es_entero, alfa_numerico, limpiar_pantalla
 
 
 def cargar_menu_distribuidores(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("--- MENU DISTRIBUIDORES ---")
     print("")
     print("  1 - Alta")
@@ -34,7 +33,7 @@ def seleccionar_opcion(opcion, data):
         cargar_menu_principal(data)
 
 def alta_distribuidores(data):
-    os.system('clear')
+    limpiar_pantalla()
     print("----------------")
     print("")
     print("Alta distribuidores")
@@ -42,7 +41,7 @@ def alta_distribuidores(data):
     ref = alfa_numerico("Nombre Identificador (único): ")
 
     if ref in data['distribuidores']:
-        os.system('clear')
+        limpiar_pantalla()
         print("El distribuidor ya existe")
         cargar_menu_distribuidores(data)
 

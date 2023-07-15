@@ -1,3 +1,14 @@
+
+import os
+def limpiar_pantalla () :
+    # Windows
+    if os.name == 'nt':
+        os.system('cls')
+    # Mac o Linux(os.name == 'posix')
+    else:
+        os.system('clear')
+
+
 def es_entero(str):
     es_correcto = False
     valor = 0

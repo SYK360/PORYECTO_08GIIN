@@ -4,10 +4,10 @@
 
 import os
 import menu
-from utils import  es_entero, alfa_numerico
+from utils import alfa_numerico, limpiar_pantalla
 
 def cargar_menu_despachar (data):
-    os.system("clear")
+    limpiar_pantalla()
     print("--- MENU DESPACHAR ---")
     print("")
     distribuidor_id = alfa_numerico("Identificador distribuidor (único): ")
