@@ -85,7 +85,8 @@ def agregar_componentes(ref, data):
         "tg": ref_tg,
         "cpu": ref_cpu,
         "ram": ref_ram,
-        "disco": ref_disco
+        "disco": ref_disco,
+        "cantidad": 1
     }
 
     print("Equipo agregado correctamente")

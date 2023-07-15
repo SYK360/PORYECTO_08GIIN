@@ -4,6 +4,7 @@
 
 import json
 import menu
+import os
 
 from utils import es_entero
 
@@ -20,15 +21,26 @@ def cargar_menu_archivos(data):
         opcion = es_entero("Selecciona una opcion: ")
 
     if opcion == 1:
-       data = cargar_archivo("collection")
+       data = cargar_archivo()
        cargar_menu_principal(data)
     elif opcion == 2:
-        guardar_archivo("collection", data)
+        guardar_archivo(data)
         cargar_menu_principal(data)
     else:
         menu.cargar_menu(data)
 
-def cargar_archivo(nombre_archivo):
+def cargar_archivo():
+
+    nombre_archivo = ""
+    archivo_existe = False
+
+    while (not archivo_existe):
+        nombre_archivo = input("Escribe el nommbre del archivo que se desea cargar: ")
+        if os.path.isfile(nombre_archivo):
+            archivo_existe = True
+        else:
+            print("El archivo no existe !")
+
     try:
         crear_archivo(nombre_archivo)
         archivo = open(nombre_archivo,"r")
@@ -47,7 +59,10 @@ def crear_archivo(nombre_archivo):
         print(ValueError)
 
 
-def guardar_archivo(nombre_archivo, data):
+def guardar_archivo(data):
+
+    nombre_archivo = input("Escribe el nommbre del archivo que se desea guardar: ")
+
     try:
         crear_archivo(nombre_archivo)
         archivo = open(nombre_archivo,"w")
