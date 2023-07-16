@@ -5,6 +5,7 @@
 
 import menu
 from utils import es_entero, alfa_numerico, limpiar_pantalla
+from sistema import cargar_listado_distribuidores
 
 
 def cargar_menu_distribuidores(data):
@@ -71,10 +72,60 @@ def alta_distribuidores(data):
     else:
         cargar_menu_principal(data)
 
+def modificar_distribuidor (data):
+    limpiar_pantalla()
+    print("----------------")
+    ref = alfa_numerico("Identificador (único): ")
+    if ref not in data['distribuidores']:
+        limpiar_pantalla()
+        print("El distribuidor no existe")
+        print("----------------")
+        print("")
+        cargar_menu_distribuidores(data)
+
+        print("----------------")
+        print("1 - Cambio de tiempo")
+        print("2 - Cambio de direccion")
+        print("3 - Dar de baja")
+        print("0 - Salir")
+        opcion = es_entero("Selecciona una opcion: ")
+
+        while opcion > 3:
+            print("El valor introducido no pertenece al menu")
+            opcion = es_entero("Selecciona una opcion: ")
+
+    if opcion == 1:
+        previo = data['distribuidores'][ref]['tiempo']
+        data['distribuidores'][ref]['tiempo'] = es_entero("Cantidad: ")
+        print("Tiempo actualizado, valor anterior: " + str(previo) + " valor actual: " + str(
+            data['distribuidores'][ref]['tiempo']))
+    elif opcion == 2:
+        previo = data['distribuidores'][ref]['direccion']
+        data['distribuidores'][ref]['direccion'] = alfa_numerico("Dirección: ")
+        print("Dirección actualizado, valor anterior: " + str(previo) + " valor actual: " + str(
+            data['distribuidores'][ref]['direccion']))
+    elif opcion == 3:
+        data['distribuidores'].pop(ref)
+
+    menu.cargar_menu(data)
 
 
 def modificacion_distribuidores(data):
-    print("Modificación distribuidores")
+    print("----------------")
+    print("")
+    print("Modificar Distribuidor")
+    print("1 - Ingresar una referencia")
+    print("2 - Listar distribuidores")
+
+    opcion = es_entero("Selecciona una opcion: ")
+    while opcion > 2:
+        print("El valor introducido no pertenece al menu")
+        opcion = es_entero("Selecciona una opcion: ")
+
+    if opcion == 1:
+        modificar_distribuidor(data)
+    elif opcion == 2:
+        cargar_listado_distribuidores(data)
 
 
 def cargar_menu_principal(data):
