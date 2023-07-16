@@ -10,6 +10,8 @@ from archivo import cargar_menu_archivos
 from sistema import cargar_menu_sistema
 from equipos import cargar_menu_equipos
 from despachar import cargar_menu_despachar
+from dias import cargar_menu_dias
+from pprint import pprint
 
 def cargar_menu(data):
     limpiar_pantalla()
@@ -27,7 +29,7 @@ def cargar_menu(data):
     print("-----------------")
     opcion = es_entero("Selecciona una opcion: " )
 
-    while opcion > 7:
+    while opcion > 8:
        print("El valor introducido no pertenece al menu")
        opcion = es_entero("Selecciona una opcion: ")
 
@@ -43,9 +45,14 @@ def seleccionar_opcion(opcion, data):
         cargar_menu_distribuidores(data)
     elif opcion == 4:
         cargar_menu_despachar(data)
+    elif opcion == 5:
+        cargar_menu_dias(data)
     elif opcion == 6:
         cargar_menu_sistema(data)
     elif opcion == 7:
         cargar_menu_archivos(data)
+    elif opcion == 8:
+       pprint(data, indent=4)
+       cargar_menu(data)
     else:
         print("Gracias por usar nuestro sistema")

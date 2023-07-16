@@ -30,14 +30,14 @@ def crear_despacho (data):
 
     data['equipos'][equipo_ref]['cantidad'] -= 1
 
-    clave = max(data['despechar']) if data['despachar'] else 0
+    clave = int(max(data['despechar']) if data['despachar'] else 0)
     clave += 1
     fecha = datetime.now()
 
     data['despachar'][clave] = {
         "distribuidor_ref": distribuidor_ref,
         "equipo_ref": equipo_ref,
-        "fecha": fecha.date(),
+        "fecha": fecha.strftime('%Y-%m-%d %H:%M:%S'),
         "dias_restantes": data['distribuidores'][distribuidor_ref]['tiempo']
     }
 

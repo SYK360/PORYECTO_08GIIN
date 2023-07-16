@@ -43,42 +43,59 @@ def alta_equipos (data):
 
 
 def agregar_componentes(ref, data):
+
+    ## Cargamos el listado de componentes filtrando solo los componentes de tipo fuente
     print("----------------")
     fuentes = {k: v for k, v in data['componentes'].items() if v["tipo"] == 1 and v["cantidad"] > 1}
     for clave, valor in fuentes.items():
         print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_fuente = alfa_numerico("Identificador fuente (único): ")
 
+    ## Cargamos el listado de componentes filtrando solo los componentes de tipo placa base
     print("----------------")
     pbs = {k: v for k, v in data['componentes'].items() if v["tipo"] == 2 and v["cantidad"] > 1}
     for clave, valor in pbs.items():
         print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_pb = alfa_numerico("Identificador placa base (único): ")
 
+    ## Cargamos el listado de componentes filtrando solo los componentes de tipo TG
     print("----------------")
     tgs = {k: v for k, v in data['componentes'].items() if v["tipo"] == 3 and v["cantidad"] > 1}
     for clave, valor in tgs.items():
         print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_tg = alfa_numerico("Identificador tg (único): ")
 
+    ## Cargamos el listado de componentes filtrando solo los componentes de tipo CPU
     print("----------------")
     cpus = {k: v for k, v in data['componentes'].items() if v["tipo"] == 4 and v["cantidad"] > 1}
     for clave, valor in cpus.items():
         print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_cpu = alfa_numerico("Identificador cpu (único): ")
 
+    ## Cargamos el listado de componentes filtrando solo los componentes de tipo RAM
     print("----------------")
     rams = {k: v for k, v in data['componentes'].items() if v["tipo"] == 5 and v["cantidad"] > 1}
     for clave, valor in rams.items():
         print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_ram = alfa_numerico("Identificador ram (único): ")
 
+    ## Cargamos el listado de componentes filtrando solo los componentes de tipo disco
     print("----------------")
     discos = {k: v for k, v in data['componentes'].items() if v["tipo"] == 6 and v["cantidad"] > 1}
     for clave, valor in discos.items():
         print(f"Nombre: {clave}, Cantidad: {data['componentes'][clave]['cantidad']}, Coste: {data['componentes'][clave]['coste']}")
     ref_disco = alfa_numerico("Identificador disco (único): ")
 
+
+    ## Descontamos el stock de cada uno de los componentes usados en el equipo
+    data['componentes'][ref_fuente]['cantidad'] -= 1
+    data['componentes'][ref_pb]['cantidad'] -= 1
+    data['componentes'][ref_tg]['cantidad'] -= 1
+    data['componentes'][ref_cpu]['cantidad'] -= 1
+    data['componentes'][ref_ram]['cantidad'] -= 1
+    data['componentes'][ref_disco]['cantidad'] -= 1
+
+    ## Almacenamos el equipo
     data['equipos'][ref] = {
         "fuente": ref_fuente,
         "placa_base": ref_pb,
