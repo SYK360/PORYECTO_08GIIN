@@ -8,6 +8,7 @@ import menu
 from utils import es_entero, alfa_numerico, es_float, limpiar_pantalla
 from sistema import cargar_listado_componentes
 
+# Renderiza el menu de componentes
 def cargar_menu_componentes(data):
     limpiar_pantalla()
     print("--- MENU COMPONENTES ---")
@@ -25,6 +26,7 @@ def cargar_menu_componentes(data):
 
     seleccionar_opcion(opcion, data)
 
+# Selecciona la opcion del menu de componentes
 def seleccionar_opcion(opcion, data):
     if opcion == 1:
         alta_componentes(data)
@@ -32,6 +34,8 @@ def seleccionar_opcion(opcion, data):
         modificacion_componentes(data)
     else:
         menu.cargar_menu(data)
+
+# Renderiza el menu de modificacion de componentes
 
 def modificacion_componentes(data):
     print("----------------")
@@ -50,6 +54,7 @@ def modificacion_componentes(data):
         cargar_listado_componentes(data)
 
 
+# Permite modificar el stock, la informacion o dar de baja un componente
 
 def modificar_componente(data):
     limpiar_pantalla()
@@ -86,7 +91,7 @@ def modificar_componente(data):
 
     menu.cargar_menu(data)
 
-
+# Funcion que permite crear un componente nuevo
 def alta_componentes(data):
     limpiar_pantalla()
     print("----------------")
@@ -137,11 +142,7 @@ def alta_componentes(data):
     else:
         menu.cargar_menu(data)
 
-
-
-def validar_referencia(ref):
-    print("Validar Referencia")
-
+# Funcion que renderiza el listado de componente para su sleccion.
 def seleccionar_tipo_componente():
     print("")
     print("1 - Fuente")

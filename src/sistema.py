@@ -9,6 +9,8 @@ import distribuidores
 import equipos
 
 
+# Funcion que carga el menu principal del apartado sistema.
+# Aqui se podran listar los distintos elementos del sistema.
 def cargar_menu_sistema(data):
     limpiar_pantalla()
     print("--- MENU SISTEMA ---")
@@ -33,6 +35,7 @@ def cargar_menu_sistema(data):
         cargar_listado_equipos(data)
 
 
+# Funcion que carga el listado de equipos.
 def cargar_listado_equipos(data):
 
         print("")
@@ -54,6 +57,7 @@ def cargar_listado_equipos(data):
         else:
            menu.cargar_menu(data)
 
+# Funcion que carga el listado de componentes.
 def cargar_listado_componentes(data):
 
     print("")
@@ -76,6 +80,7 @@ def cargar_listado_componentes(data):
     else:
         menu.cargar_menu(data)
 
+# Funcion que carga el listado de distribuidores.
 def cargar_listado_distribuidores(data):
 
     print("")

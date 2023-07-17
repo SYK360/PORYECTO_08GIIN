@@ -8,6 +8,8 @@ import os
 
 from utils import es_entero
 
+# Renderiza el menu de archivos
+# Con esto podremos guardar o cargar un archivo que ya exista
 def cargar_menu_archivos(data):
     print("1 - Cargar datos")
     print("2 - Guardar datos")
@@ -29,6 +31,8 @@ def cargar_menu_archivos(data):
     else:
         menu.cargar_menu(data)
 
+# Carga un archivo que ya existe
+# si no existe, se le pedira al usuario que ingrese un nombre de archivo valido
 def cargar_archivo():
 
     nombre_archivo = ""
@@ -51,6 +55,8 @@ def cargar_archivo():
         print(ValueError)
         return {}
 
+# Funcion que verifica si el archivo existe, si no existe lo crea
+# Lo abre en fomo append. Esto es para que si el archivo no existe, lo cree
 def crear_archivo(nombre_archivo):
     try:
         file = open(nombre_archivo,"a")
@@ -59,6 +65,9 @@ def crear_archivo(nombre_archivo):
         print(ValueError)
 
 
+# Funcion que almacena los datos en un archivo
+# Si el archivo no existe, lo crea
+# Si el archivo existe, lo sobreescribe
 def guardar_archivo(data):
 
     nombre_archivo = input("Escribe el nommbre del archivo que se desea guardar: ")

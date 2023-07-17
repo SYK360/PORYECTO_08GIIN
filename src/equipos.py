@@ -6,7 +6,7 @@ import os
 import menu
 
 from utils import es_entero, alfa_numerico, limpiar_pantalla
-from sistema import cargar_listado_equipos
+import sistema
 
 # Menu prinicpal de equipos.
 def cargar_menu_equipos(data):
@@ -128,12 +128,17 @@ def agregar_componentes(ref, data):
     print("Equipo agregado correctamente")
     cargar_menu_equipos(data)
 
+# Funcion para validar que la referencia exista en el sistema.
+# En el caso de existir renderiza el menu principal de equipos.
 def validar_ref(ref, data):
     if ref in data['equipos']:
         limpiar_pantalla()
         print("La referencia ya existe")
         cargar_menu_equipos(data)
 
+
+# Funcion para renderizar menu de modificacion de equipos.
+# Ofrecer las dos opciones para modificacion Cambio de configuracion o Desensamblar equipo.
 def modificacion_equipos(data):
     limpiar_pantalla()
 
@@ -148,7 +153,7 @@ def modificacion_equipos(data):
         opcion = es_entero("Selecciona una opcion: ")
 
     if opcion == 2:
-        cargar_listado_equipos(data)
+        sistema.cargar_listado_equipos(data)
     else:
         print("----------------")
         ref = alfa_numerico("Identificador (único): ")
@@ -176,6 +181,9 @@ def modificacion_equipos(data):
             desensamblar_equipo(data,ref)
 
 
+# Funcion para cambiar la configuracion de un equipo.
+# Se quita todos los componentes antiguos y se agregan los nuevos.
+# Si el usuario no desea cambiar un componente, se deja el mismo.
 def cambio_configuracion_equipo(data,ref):
     print("----------------")
     print("Se te mostrara los componentes que puedes modificar.")
@@ -208,7 +216,8 @@ def cambio_configuracion_equipo(data,ref):
     cargar_menu_equipos(data)
 
 
-
+# Funcion para quitar los componentes de un equipo.
+# El stock de cada uno de los componentes usado en el equipo sera restaurado.
 def desensamblar_equipo(data,ref):
 
     ## Aumentamos el stock de cada uno de los componentes usados en el equipo

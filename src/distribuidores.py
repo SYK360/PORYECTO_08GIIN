@@ -3,11 +3,12 @@
 """
 
 
-import menu
 from utils import es_entero, alfa_numerico, limpiar_pantalla
-from sistema import cargar_listado_distribuidores
+import sistema
+import menu
 
 
+# Menu prinicpal de distribuidores.
 def cargar_menu_distribuidores(data):
     limpiar_pantalla()
     print("--- MENU DISTRIBUIDORES ---")
@@ -25,14 +26,18 @@ def cargar_menu_distribuidores(data):
 
     seleccionar_opcion(opcion, data)
 
+# Funcion para manejar la seleccion del usuario.
 def seleccionar_opcion(opcion, data):
     if opcion == 1:
         alta_distribuidores(data)
     elif opcion == 2:
         modificacion_distribuidores(data)
     else:
-        cargar_menu_principal(data)
+        menu.cargar_menu(data)
 
+# Funcion para dar de alata un distribuidor.
+# Se solicita el nombre, tiempo de entrega y direccion.
+# En el caso de existir el nombre se informa al usuario y se vuelve a solicitar.
 def alta_distribuidores(data):
     limpiar_pantalla()
     print("----------------")
@@ -70,8 +75,12 @@ def alta_distribuidores(data):
     if opcion == 1:
         alta_distribuidores(data)
     else:
-        cargar_menu_principal(data)
+        menu.cargar_menu(data)
 
+# Menu para modificacion de distribuidores.
+# Se solicita el nombre del distribuidor a modificar.
+# En el caso de no existir se informa al usuario y se vuelve a solicitar.
+# Se solicita el campo a modificar.
 def modificar_distribuidor (data):
     limpiar_pantalla()
     print("----------------")
@@ -109,6 +118,7 @@ def modificar_distribuidor (data):
 
     menu.cargar_menu(data)
 
+# Funcion que renderiza las opciones de modificacion.
 
 def modificacion_distribuidores(data):
     print("----------------")
@@ -125,8 +135,4 @@ def modificacion_distribuidores(data):
     if opcion == 1:
         modificar_distribuidor(data)
     elif opcion == 2:
-        cargar_listado_distribuidores(data)
-
-
-def cargar_menu_principal(data):
-    menu.cargar_menu(data)
+        sistema.cargar_listado_distribuidores(data)

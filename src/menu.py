@@ -3,6 +3,8 @@
 """
 
 
+# Cargamos todas las funciones que vamos a utilizar en el menu
+
 from utils import es_entero, limpiar_pantalla
 from componentes import cargar_menu_componentes
 from distribuidores import cargar_menu_distribuidores
@@ -37,6 +39,7 @@ def cargar_menu(data):
     seleccionar_opcion(opcion, data)
 
 
+# Funcion que selecciona la opcion del menu principal.
 def seleccionar_opcion(opcion, data):
     if opcion == 1:
         cargar_menu_componentes(data)

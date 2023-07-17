@@ -6,6 +6,7 @@ import menu
 from utils import  limpiar_pantalla, es_entero
 from datetime import datetime
 
+# Funcion que carga el menu principal del apartado dias.
 def cargar_menu_dias (data):
     limpiar_pantalla()
     print("--- MENU DIAS ---")
@@ -25,6 +26,11 @@ def cargar_menu_dias (data):
 
     crear_dia(data)
 
+
+# Esta funcion simula el paso del tiempo de un despacho.
+# Se solicita al usuario el identificador del despacho y los dias que se quieren ingresar.
+# Se comprueba que el despacho exista y que los dias a ingresar no superen los dias restantes.
+# Se actualiza el valor de los dias restantes y se crea un registro en el diccionario dias.
 
 def crear_dia (data) :
     despacho_ref = es_entero("Identificador despacho: ")
