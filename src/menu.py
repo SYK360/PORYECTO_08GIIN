@@ -13,6 +13,7 @@ from despachar import cargar_menu_despachar
 from dias import cargar_menu_dias
 from pprint import pprint
 
+# Funcion que carga el menu principal del programa.
 def cargar_menu(data):
     limpiar_pantalla()
     print("--- MENU PRINCIPAL ---")

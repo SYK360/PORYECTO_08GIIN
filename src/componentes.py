@@ -51,7 +51,6 @@ def modificacion_componentes(data):
 
 
 
-
 def modificar_componente(data):
     limpiar_pantalla()
     print("----------------")
